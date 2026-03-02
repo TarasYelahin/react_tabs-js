@@ -6,7 +6,7 @@ export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {(tabs || []).map(tab => (
             <li
               key={tab.id}
               className={tab.id === (active && active.id) ? 'is-active' : ''}
@@ -30,7 +30,7 @@ export const Tabs = ({ tabs, activeTabId, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {active && active.content}
+        {active?.content}
       </div>
     </div>
   );
